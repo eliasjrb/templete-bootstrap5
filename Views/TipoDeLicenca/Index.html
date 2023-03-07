@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Tipo de licença";
+}
+
+<div class="row mx-1">
+    <div class="col-12 bg-gradient-primary p-1 text-white rounded mb-2">
+        <i class="fa-solid fa-id-badge"></i>
+        <span class="">Tipo de licença</span>
+    </div>
+    <div class="card p-1 mb-2">
+        <div class="card-body p-1">
+            <div class="col-12 p-0 mb-2">
+                <input class="form-control" type="text" placeholder="Pesquisar...">
+            </div>
+            <div class="col-12 d-flex justify-content-between p-0">
+                <div>
+                    <a class="btn btn-sm btn-primary-pm text-white" href="#">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        PESQUISAR
+                    </a>
+                </div>
+                <div>
+                    <a asp-controller="TipoDeLicenca" asp-action="Criar" class="btn btn-sm btn-primary-pm">
+                        <i class="fa-solid fa-plus"></i>
+                        NOVO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-0 table-responsive">
+        <table class="table table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Lei</th>
+                    <th scope="col">Ativo</th>
+                    <th scope="col" class="text-end">Operação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>REDUÇÃO DE CARGA HORÁRIA EM ATE 50%</td>
+                    <td>LEI 68 ART. 277</td>
+                    <td>
+                        <button class="btn btn-sm bg-success text-white px-1 py-0 ">Sim</button>
+                    </td>
+                    <td class="text-end">
+                        <a href="#">
+                            <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-pen-to-square text-warning"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-trash-can text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>REDUÇÃO DE CARGA HORÁRIA EM ATE 50%</td>
+                    <td>LEI 68 ART. 277</td>
+                    <td>
+                        <button class="btn btn-sm bg-success text-white px-1 py-0 ">Sim</button>
+                    </td>
+                    <td class="text-end">
+                        <a href="#">
+                            <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-pen-to-square text-warning"></i>
+                        </a>
+                        <a href="#">
+                             <i class="fa-solid fa-trash-can text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>REDUÇÃO DE CARGA HORÁRIA EM ATE 50%</td>
+                    <td>LEI 68 ART. 277</td>
+                    <td>
+                        <button class="btn btn-sm bg-success text-white px-1 py-0 ">Sim</button>
+                    </td>
+                    <td class="text-end">
+                        <a href="#">
+                            <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-pen-to-square text-warning"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-solid fa-trash-can text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

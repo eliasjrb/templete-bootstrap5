@@ -1,0 +1,213 @@
+﻿@{
+    ViewData["Title"] = "Criar unidade pericial";
+}
+
+<div class="row mx-1">
+    <div class="col-12 bg-gradient-primary p-1 text-white rounded mb-2">
+        <a href="/UnidadePericial">
+            <i class="fa-solid fa-building-flag"></i>
+        </a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span class="">Criar unidade pericial</span>
+    </div>
+    <form class="form p-0" method="post" action="#">
+        <div class="card p-1 mb-2">
+            <div class="card-header">
+                <i class="fa-solid fa-align-right"></i>
+                <span class="mr-2">Dados Gerais</span>
+            </div>
+            <div class="card-body p-1">
+                <div class="row">
+                    <div class="col-8 mb-3">
+                        <label for="NomeUnidade" class="form-label">Nome da unidade</label>
+                        <input id="NomeUnidade" name="NomeUnidade" type="text" class="form-control" />
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label for="Numero" class="form-label">Ativo</label>
+                        <div>
+                            <div class=" form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Ativo" id="Ativo1" value="sim">
+                                <label class="form-check-label" for="Ativo1">Sim</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Ativo" id="Ativo2" value="nao">
+                                <label class="form-check-label" for="Ativo2">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-1 mb-2">
+            <div class="card-header">
+                <i class="fa-solid fa-map-location"></i>
+                <span class="mr-2">Endereço e contato</span>
+            </div>
+            <div class="card-body p-1">
+
+                <div class="row">
+                    <div class="col-8 col-md-6 mb-3">
+                        <label for="Cep" class="form-label">CEP</label>
+                        <input id="Cep" name="Cep" onblur="getCep(this);" type="text" data-cep=".endereco" class="form-control" />
+                        <small class="text-danger endereco" hidden></small>
+                    </div>
+                    <div class="col-4 col-md-6 mb-3 d-flex align-items-center">
+                        <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" class="text-warning-emphasis" target="_blank"><i class="fa-solid fa-circle-question p-1"></i> Não sei meu CEP</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8 mb-3">
+                        <label for="Municipio" class="form-label">Município</label>
+                        <input id="Municipio" name="Municipio" data-endereco="localidade" type="text" class="form-control endereco" disabled  style="cursor:not-allowed"/>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="Uf" class="form-label">UF</label>
+                        <input id="Uf" name="Uf" data-endereco="uf" type="text" class="form-control endereco" disabled style="cursor:not-allowed" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8 mb-3">
+                        <label for="Logradouro" class="form-label">Logradouro</label>
+                        <input id="Logradouro" name="Logradouro" type="text" data-endereco="logradouro" class="form-control endereco" disabled style="cursor:not-allowed" />
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="Numero" class="form-label">Número</label>
+                        <input id="Numero" name="Numero" type="text" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-4 mb-3">
+                        <label for="Bairro" class="form-label">Bairro</label>
+                        <input id="Bairro" name="Bairro" type="text" data-endereco="bairro" class="form-control endereco" disabled style="cursor:not-allowed" />
+                    </div>
+                    <div class="col-12 col-md-8 mb-3">
+                        <label for="Complemento" class="form-label">Complemento</label>
+                        <input id="Complemento" name="Complemento" type="text" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 col-md-4 mb-3">
+                        <label for="Telefone" class="form-label">Telefone</label>
+                        <input id="Telefone" name="Telefone" type="text" class="form-control" />
+                    </div>
+                    <div class="col-6 col-md-4 mb-3">
+                        <label for="Celular" class="form-label">Celular</label>
+                        <input id="Celular" name="Celular" type="text" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card p-1 mb-2">
+            <div class="card-header">
+                <i class="fa-solid fa-clock"></i>
+                <span class="mr-2">Horário de funcionamento da unidade</span>
+            </div>
+            <div class="card-body p-1">
+                <div class="row pt-2">
+                    <div class="col-6 mb-3">
+                        <label for="HorarioInicial" class="form-label">Horário inicial</label>
+                        <input id="HorarioInicial" name="HorarioInicial" type="time" class="form-control" />
+                    </div>
+
+                    <div class="col-6 mb-3">
+                        <label for="HorarioFinal" class="form-label">Horário final</label>
+                        <input id="HorarioFinal" name="HorarioFinal" type="time" class="form-control" />
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-12 mb-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="Domingo" value="1">
+                            <label class="form-check-label" for="Domingo">Domingo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="Segunda" value="2">
+                            <label class="form-check-label" for="Segunda">Segunda-Feira</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="Terca" value="3">
+                            <label class="form-check-label" for="Terca">Terça-Feira</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="Quarta" value="4">
+                            <label class="form-check-label" for="Quarta">Quarta-Feira</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="Quinta" value="5">
+                            <label class="form-check-label" for="Quinta">Quinta-Feira</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="Sexta" value="6">
+                            <label class="form-check-label" for="Sexta">Sexta-Feira</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="Sabado" value="opti7on1">
+                            <label class="form-check-label" for="Sabado">Sábado</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card p-1 mb-5">
+            <div class="card-header">
+                <i class="fa-solid fa-user-clock"></i>
+                <span class="mr-2">Horário padrão agenda profissional</span>
+            </div>
+            <div class="card-body p-1">
+                <div class="row pt-2">
+                    <div class="col-4 col-md-2">
+                        <span>1º Período</span>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="HorarioInicialProficional1" class="form-label">Horário inicial</label>
+                        <input id="HorarioInicialProficional1" name="HorarioInicialProficional1" type="time" class="form-control" />
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="HorarioFinalProficional1" class="form-label">Horário final</label>
+                        <input id="HorarioFinalProficional1" name="HorarioFinalProficional1" type="time" class="form-control" />
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-4 col-md-2">
+                        <span>2º Período</span>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="HorarioInicialProficional2" class="form-label">Horário inicial</label>
+                        <input id="HorarioInicialProficional2" name="HorarioInicialProficional2" type="time" class="form-control" />
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="HorarioFinalProficional2" class="form-label">Horário final</label>
+                        <input id="HorarioFinalProficional2" name="HorarioFinalProficional2" type="time" class="form-control" />
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-4 mb-3">
+                        <label for="DuracaoDaConsulta" class="form-label">Duração da consulta</label>
+                        <input id="DuracaoDaConsulta" name="DuracaoDaConsulta" type="time" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 m-3">
+            <button href="#" type="submit" class="btn btn-success-pm btn-circle">
+                <i class="fa-solid fa-check fa-2x"></i>
+            </button>
+        </div>
+    </form>
+</div>
+
+@section scripts{
+    <script src="~/js/api-cep.js"></script>
+}
+
